@@ -1,6 +1,8 @@
 #Team Trojan 
+
 # Implementing Mesh Network
- To implement mesh network we have used Byzantium operating System. Byzantium is a live Linux distribution
+
+To implement mesh network we have used Byzantium operating System. Byzantium is a live Linux distribution
  that delivers easy-to-use, secure, and robust mesh networking capabilities.
  
 Following are the steps involoved in constructing mesh network
@@ -31,7 +33,7 @@ Following are the steps involoved in constructing mesh network
 
 ###Scenario 1 - All the nodes connected
 
-![Image](https://github.com/naveenholla/Mesh-on-Project-Byzantium/blob/master/screen_1.png)
+![Image](screen_1.png)
 
 
 In the above image,
@@ -46,7 +48,7 @@ Right side - Its the OLSR table of the node (**192.168.159.155**)
 
 ###Scenario 2 - One node disconnected
 
-![Image](https://github.com/naveenholla/Mesh-on-Project-Byzantium/blob/master/screen.png)
+![Image](screen.png)
 
 In the above figure, 
 
@@ -58,7 +60,7 @@ Right side - From the one system(192.168.159.155) trying to ping **192.168.133.1
 
 Scenario 3 - To demonstrate alternative path 
 
-![Image](https://github.com/naveenholla/Mesh-on-Project-Byzantium/blob/master/screen1.png)
+![Image](screen1.png)
 
 Left side  - Topology of mesh network 
 
@@ -72,7 +74,7 @@ Right side - Its the terminal of the node (**192.168.159.155**)
 
 ###Scenario 4 - Internet connectivity
 
-![Image](https://github.com/naveenholla/Mesh-on-Project-Byzantium/blob/master/internet.png)
+![Image](internet.png)
 
 In the above figure, We have connected one of the Byzantium system to Internet using ethernet cable.One which is in red color.
 Now this node becomes gateway to other non-Byzantium nodes for internet access.Hence if one of the node has the internet then all of the 
