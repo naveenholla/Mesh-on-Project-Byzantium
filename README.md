@@ -1,4 +1,5 @@
-#Team Trojan 
+
+# Team Trojan 
 
 # Implementing Mesh Network
 
@@ -25,13 +26,13 @@ Following are the steps involoved in constructing mesh network
 4. Repeat steps 1-3 for all the nodes in the network.
 
 
-###Once all the systems are ready,
+### Once all the systems are ready,
 
 1. open the browser goto **localhost:8089**
 
 2. You can see the whole topology 
 
-###Scenario 1 - All the nodes connected
+### Scenario 1 - All the nodes connected
 
 ![Image](screen_1.png)
 
@@ -46,7 +47,7 @@ Right side - Its the OLSR table of the node (**192.168.159.155**)
 
 
 
-###Scenario 2 - One node disconnected
+### Scenario 2 - One node disconnected
 
 ![Image](screen.png)
 
@@ -72,7 +73,7 @@ Right side - Its the terminal of the node (**192.168.159.155**)
 
   - We can notice that there are two paths for every node,if one path fails another is automatically followed.
 
-###Scenario 4 - Internet connectivity
+### Scenario 4 - Internet connectivity
 
 ![Image](internet.png)
 
@@ -80,26 +81,26 @@ In the above figure, We have connected one of the Byzantium system to Internet u
 Now this node becomes gateway to other non-Byzantium nodes for internet access.Hence if one of the node has the internet then all of the 
 nodes in the mesh network can use internet without any issues. 
 
-##Working of Byzantium - 
+## Working of Byzantium - 
 
   1. Byzantium Nodes
   
   2. Non-Byzantium Nodes
 
-###1. Byzantium Nodes
+### 1. Byzantium Nodes
 
 Basically while booting up it configures the mesh network , 
   - with SSID - **"Byzantium"** and assigns ip address of the network **192.168.0.0/16.**
   - So those who install Byzantium will all come under same network **i.e 192.168.0.0/16.**
  
-###2. Non-Byzantium Nodes
+### 2. Non-Byzantium Nodes
 
 Non-Byzantium nodes is basically any system(Linux/Windows) with wifi interface which is connected to Byzantium network.
 When it gets connected to Byzantium network it will be assigned a IP address of network **10.0.0.0/8**.This address is assigned by a **Master-Node**.
 
 **Master-Node** - Its one of the Byzantium node which broadcasts SSID over the network and responsible for assigning IP address and providing gateway details.
 
-###Challanges 
+### Challanges 
 
 1. What if Master-node disconnects
         Byzantium automatically sets another Byzantium node as master-Node which starts broadcasting SSID.But it takes some time to get configured.
