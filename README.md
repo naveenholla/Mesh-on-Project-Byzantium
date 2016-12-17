@@ -16,11 +16,11 @@ Following are the steps involoved in constructing mesh network
     
     That is Assignment of,
   
-  1.Mesh ID
+      1.Mesh ID
   
-  2.BSSID
+      2.BSSID
   
-  3.IP Address
+      3.IP Address
 
 3. Once the system boots up completely check if configurations are correct.
 
