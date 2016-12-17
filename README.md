@@ -1,37 +1,110 @@
-## Welcome to GitHub Pages
+#Team Trojan 
+# Implementing Mesh Network
+ To implement mesh network we have used Byzantium operating System. Byzantium is a live Linux distribution
+ that delivers easy-to-use, secure, and robust mesh networking capabilities.
+ 
+Following are the steps involoved in constructing mesh network
 
-You can use the [editor on GitHub](https://github.com/naveenholla/Mesh-on-Project-Byzantium/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
+1. Run Byzantium OS in the system using live booting or install the operating system.
+  
+  ISO available at --> http://project-byzantium.org/downloads/v0.5b/
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+2. While booting up Byzantium configures the mesh network by itself.(Auto-configuration)
+    That is Assignment of,
+  
+  1.Mesh ID
+  
+  2.BSSID
+  
+  3.IP Address
 
-### Markdown
+3. Once the system boots up completely check if configurations are correct.
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+4. Repeat steps 1-3 for all the nodes in the network.
 
-```markdown
-Syntax highlighted code block
 
-# Header 1
-## Header 2
-### Header 3
+###Once all the systems are ready,
 
-- Bulleted
-- List
+1. open the browser goto **localhost:8089**
 
-1. Numbered
-2. List
+2. You can see the whole topology 
 
-**Bold** and _Italic_ and `Code` text
+###Scenario 1 - All the nodes connected
 
-[Link](url) and ![Image](src)
-```
+![Image](https://github.com/naveenholla/Mesh-on-Project-Byzantium/blob/master/screen_1.png)
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
 
-### Jekyll Themes
+In the above image,
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/naveenholla/Mesh-on-Project-Byzantium/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
+Left side  - Shows all the nodes which are in the mesh network.
 
-### Support or Contact
+Right side - Its the OLSR table of the node (**192.168.159.155**)
 
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+  - In the figure you can notice that, there is an edge between all the nodes along with **the cost** of connection mentioned on the edge.
+
+
+
+###Scenario 2 - One node disconnected
+
+![Image](https://github.com/naveenholla/Mesh-on-Project-Byzantium/blob/master/screen.png)
+
+In the above figure, 
+
+Left side  - one system is down i.e with IP address **192.168.133.161**
+
+Right side - From the one system(192.168.159.155) trying to ping **192.168.133.161** --> 100% packet loss
+
+
+
+Scenario 3 - To demonstrate alternative path 
+
+![Image](https://github.com/naveenholla/Mesh-on-Project-Byzantium/blob/master/screen1.png)
+
+Left side  - Topology of mesh network 
+
+Right side - Its the terminal of the node (**192.168.159.155**)
+
+  - OLSRD Table(Optimised Lisk State Routing Debug)
+
+  - Which shows one-hop and two-hop distance with everynode.
+
+  - We can notice that there are two paths for every node,if one path fails another is automatically followed.
+
+###Scenario 4 - Internet connectivity
+
+![Image](https://github.com/naveenholla/Mesh-on-Project-Byzantium/blob/master/internet.png)
+
+In the above figure, We have connected one of the Byzantium system to Internet using ethernet cable.One which is in red color.
+Now this node becomes gateway to other non-Byzantium nodes for internet access.Hence if one of the node has the internet then all of the 
+nodes in the mesh network can use internet without any issues. 
+
+##Working of Byzantium - 
+
+  1. Byzantium Nodes
+  
+  2. Non-Byzantium Nodes
+
+###1. Byzantium Nodes
+
+Basically while booting up it configures the mesh network , 
+  - with SSID - **"Byzantium"** and assigns ip address of the network **192.168.0.0/16.**
+  - So those who install Byzantium will all come under same network **i.e 192.168.0.0/16.**
+ 
+###2. Non-Byzantium Nodes
+
+Non-Byzantium nodes is basically any system(Linux/Windows) with wifi interface which is connected to Byzantium network.
+When it gets connected to Byzantium network it will be assigned a IP address of network **10.0.0.0/8**.This address is assigned by a **Master-Node**.
+
+**Master-Node** - Its one of the Byzantium node which broadcasts SSID over the network and responsible for assigning IP address and providing gateway details.
+
+###Challanges 
+
+1. What if Master-node disconnects
+        Byzantium automatically sets another Byzantium node as master-Node which starts broadcasting SSID.But it takes some time to get configured.
+
+2. We can not create a perfect diamond network
+        That is since to work as a mesh network, Byzantium implemented in such a way that all nodes must be connected to all the nodes. which is nothing but a complete graph.
+        
+        Enjoyed Working on this assignment thank you :)
+                       
+            
