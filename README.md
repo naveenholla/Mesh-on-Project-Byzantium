@@ -13,6 +13,7 @@ Following are the steps involoved in constructing mesh network
   ISO available at --> http://project-byzantium.org/downloads/v0.5b/
 
 2. While booting up Byzantium configures the mesh network by itself.(Auto-configuration)
+    
     That is Assignment of,
   
   1.Mesh ID
